@@ -4,8 +4,7 @@ public class PersonList {
 		first = null;
 	}
 	public void insert(TreePerson person) {
-		Node node = new Node(person, first);
-		first = node;
+		first = new Node(person, first);
 	}
 	public void clear() {
 		first = null;
