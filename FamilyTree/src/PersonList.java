@@ -1,4 +1,4 @@
-public class PersonList implements IterableTP {
+public class PersonList {
 	private Node first;
 	public PersonList() {
 		first = null;
@@ -10,7 +10,6 @@ public class PersonList implements IterableTP {
 	public void clear() {
 		first = null;
 	}
-	@Override
 	public IteratorTP iterator() {
 		return new TreePersonIter(first);
 	}
