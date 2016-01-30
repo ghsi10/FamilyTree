@@ -46,26 +46,26 @@ public class Tree {
 			return father;
 		if (mother.id==id)
 			return mother;
-		return findPerson(id, children, children.iterator());
+		return findPerson(id, children.iterator());
 	}
-	private TreePerson findPerson(int id, PersonList list, IteratorTP iter) {	
+	private TreePerson findPerson(int id, IteratorTP iter) {	
 		if (!iter.hasNext())
 			return null;
 		TreePerson tmp = iter.next();
 		if (tmp.id == id)
 			return tmp;
-		tmp = findPerson(id, tmp.children, tmp.children.iterator());
+		tmp = findPerson(id, tmp.children.iterator());
 		if (tmp != null)
 			return tmp;
-		return findPerson(id, list, iter);
+		return findPerson(id, iter);
 	}
 	public void show() {
 		System.out.println(father);
 		System.out.println(mother);
 		System.out.println();
-		show("\t", children, children.iterator());
+		show("\t", children.iterator());
 	}
-	private void show(String lvl, PersonList list, IteratorTP iter) {
+	private void show(String lvl, IteratorTP iter) {
 		if (!iter.hasNext())
 			return;
 		System.out.print(lvl);
@@ -76,7 +76,7 @@ public class Tree {
 			System.out.println(p.marriedTo);
 		}
 		System.out.println();
-		show(lvl+"\t", p.children, p.children.iterator());
-		show(lvl, list, iter);
+		show(lvl+"\t", p.children.iterator());
+		show(lvl, iter);
 	}
 }
